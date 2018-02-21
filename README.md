@@ -96,6 +96,33 @@ do
  fi
 done
 ```
+### 6 Exercise 6 sol
+```
+pinghost()
+{
+  read HOSTNAME
+  ping $HOSTNAME
+}
+select TASK in '' '' ''
+do
+case $REPLY in
+  1) TASK=passwd;;
+  2) TASK=pinghost;;
+esac
+if [ -n "task" ]
+then
+  $TASK
+  break
+else
+fi
+done
+done
+```
+### 5 Using trap
+redefine signal.
+```
+trap "echo int" INT
+```
 
 ## 7. Script Debugging and Analyzing
 ### 2 Common Analyzing Tools
