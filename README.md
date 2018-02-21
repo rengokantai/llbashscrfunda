@@ -16,6 +16,9 @@ exit code 0
 
 ### 3 Using for
 ```
+cat '$(cat /etc/hosts)'
+```
+```
 for i in `cat /etc/hosts`; do echo $i; done
 for i in {1..5}; do echo $i; done
 ```
@@ -42,4 +45,66 @@ no|n)
   echo
 *)
 esac
+```
+
+## 6.
+### 1 Working with Options
+```
+while getopts "abc:" opt
+do
+case $opt in
+  a) VAR1=m ;;
+  b) VAR3="-s $OPTARG";;
+esac
+done
+```
+
+### 3 Working with Arrays
+```
+names =(a b c)
+echo${#names[@]} #length
+echo${names[@]}  #print all
+```
+
+### 4 Defing Menu Interfaces
+```
+select DIR in /bin /usr /etc
+  if [ -n $DIR ]
+  then
+    DIR=$DIR
+    export DIR
+    break
+  else
+  fi
+done
+```
+complex:
+```
+select TASK in 'a' 'b' c'
+do
+  case $REPLY in
+    1) TASK=mount;;
+    2) TASK='df -h'
+    #)
+  esac
+ if [-n "$TASK" ]
+ then
+  clear
+  $TASK
+  break
+ else
+ fi
+done
+```
+
+## 7. Script Debugging and Analyzing
+### 2 Common Analyzing Tools
+```
+bash -v #verbose output
+bash -n # syntax error
+bash -x #xtrace
+```
+```
+set list  #show hidden char
+set nolist
 ```
