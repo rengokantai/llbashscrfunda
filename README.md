@@ -1,5 +1,12 @@
 # llbashscrfunda
 
+## 2.
+### 1 About Terminology
+
+### 5 Sourcing
+By using sourcing the contents of one script can be included in another script
+This is a very common method to seperate static script code from dynamic content
+This dynamic content often consists of variables and functions
 
 ## 5.
 ### 2 Using && and ||
@@ -98,6 +105,8 @@ done
 ```
 ### 6 Exercise 6 sol
 ```
+while true; do
+trap "eho NOPE" INT
 pinghost()
 {
   read HOSTNAME
