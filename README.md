@@ -32,3 +32,14 @@ do
   echo $COUNTER
 done
 ```
+### 4 Using case
+```
+VAR = $1
+case $VAR in
+yes)
+  echo ok;;
+no|n)
+  echo
+*)
+esac
+```
